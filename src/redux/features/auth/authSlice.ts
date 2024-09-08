@@ -5,10 +5,16 @@ type TAuthState = {
   user: null | object;
   token: null | string;
 };
+export type TUser = {
+  userId: string;
+  role: string;
+  iat: number;
+  exp: number;
+};
 
 const initialState: TAuthState = {
-  user: null,
-  token: null,
+  user: null ,
+  token: null 
 };
 
 const authSlice = createSlice({

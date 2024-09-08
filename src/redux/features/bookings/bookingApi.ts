@@ -1,24 +1,39 @@
+import { baseApi } from "@/redux/api/baseApi";
 
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-export const baseApi = createApi({
-  reducerPath: 'baseApi',
-  baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000/api' }),
-  tagTypes: ['bookings'],
+export const bookingsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-
-    getProducts:builder.query({
-      query:()=>({
-        method:'GET',
-        url:'/bookings',
+      getAllbookings: builder.query({
+        query: () => ({
+          url: '/bookings',
+          method: 'GET',
+        }),
       }),
-      providesTags:['bookings'],
+      createAbooking: builder.mutation({
+        query: (data) => ({
+          url: '/bookings',
+          method: 'POST',
+          body:data,
+        }),
+      }),
+      getUserbooking: builder.query({
+        query: () => ({
+          url: '/my-bookings',
+          method: 'GET',
+        }),
+      }),
+      updateBookings: builder.mutation({
+        query: () => ({
+          url: '/bookings/:id',
+          method: 'PUT',
+        }),
+      }),
+      deleteAbookings: builder.mutation({
+        query: () => ({
+          url: '/rooms/:id',
+          method: 'DELETE',
+        }),
+      }),
     }),
-  })
-
 })
-
-export const {} = baseApi
-
 
 
