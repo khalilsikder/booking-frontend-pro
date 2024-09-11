@@ -6,6 +6,7 @@ import Home from "@/pages/Home/Home";
 import Login from "@/pages/login/Login";
 import MeetingRooms from "@/pages/meetingRooms/MeetingRooms";
 import MyBookings from "@/pages/MyBookings/MyBookings";
+import NotFound from "@/pages/notfound/NotFound";
 import SignUp from "@/pages/signUp/SignUp";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -37,6 +38,11 @@ import { createBrowserRouter } from "react-router-dom";
             {
                path: 'signup',
                element: <SignUp/>
+            },
+            {
+               path: '*',
+               element: <NotFound/>
+        
             },
             {
                 path:'mybookings',

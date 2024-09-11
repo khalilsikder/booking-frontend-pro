@@ -1,4 +1,15 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+
+// import "./styles.css";
 import image1 from "../../assets/slider3.jpg";
+import image2 from "../../assets/team1.jpg";
+import image3 from "../../assets/team2.jpg";
+import image4 from "../../assets/team3.jpg";
+
 const AboutUs = () => {
   return (
     <div className="container">
@@ -22,6 +33,15 @@ const AboutUs = () => {
       <div className="mt-4">   
         <iframe className="mx-auto" width="950" height="315" src="https://www.youtube.com/embed/OblQXejHts8?si=xdntZJWVQLBeDmor" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
+       <div className="container mt-4">
+        <h2 className=" text-2xl mt-4 mb-4">Our team members</h2>
+       <Swiper watchSlidesProgress={true} slidesPerView={3} className="mySwiper">
+        <SwiperSlide><img src= {image2} alt="" /></SwiperSlide>
+        <SwiperSlide><img src= {image3} alt="" /></SwiperSlide>
+        <SwiperSlide><img src= {image4} alt="" /></SwiperSlide>
+        
+      </Swiper>
+       </div>
     </div>
   );
 };
