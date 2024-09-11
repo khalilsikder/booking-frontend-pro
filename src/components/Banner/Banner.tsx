@@ -3,7 +3,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import image1 from '../../assets/b.b1.jpg'
 import image2 from '../../assets/b.b2.png'
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
 
   
 

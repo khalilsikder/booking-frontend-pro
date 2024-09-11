@@ -1,22 +1,37 @@
-import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../ui/card";
+import { TRoom } from "@/types";
+import { Link } from "react-router-dom";
+import { Button } from "../ui/button";
 
-const RoomCard = () => {
-    return (
-        <Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
-</Card>
+const RoomCard = ({ room }: { room: TRoom }) => {
+  return (
+    <Card>
+      <Link to={`/${room?.slug}`}>
+        <CardHeader>
+          <img className="rounded-2xl" src={room?.image} />
+        </CardHeader>
 
-    );
+        <CardContent className="grid gap-4 text-center">
+          <div className=" flex items-center space-x-4 rounded-md border p-4">
+            <div className="flex-1 space-y-1">
+              <p className="text-sm font-medium leading-none">
+               Name: {room?.name}
+              </p>
+              <p className="text-sm text-muted-foreground">PerSlot: {room?.pricePerSlot}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Link>
+      <CardFooter className="text-center justify-center">
+        <Button> <Link to='/meetingrooms'>show details</Link></Button>
+      </CardFooter>
+    </Card>
+  );
 };
 
 export default RoomCard;

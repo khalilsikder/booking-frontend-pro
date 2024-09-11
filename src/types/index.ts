@@ -1,11 +1,12 @@
-export type TBookings = {
+export type TRoom = {
     _id:string;
     name:string;
-    capacity:number;
-    availableQuantity:number;
-    description:string;
     image:string;
-    price:number;
-    rating:number;
+    roomNo:number;
+    floorNo:number;
+    capacity:number;
+    pricePerSlot:number;
+    amenities:[ "Projector", "Whiteboard"];
+    isDeleted:boolean;
     slug:string;
     }

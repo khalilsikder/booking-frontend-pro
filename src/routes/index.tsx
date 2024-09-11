@@ -1,4 +1,4 @@
-import MainLayout from "@/components/ui/layouts/MainLayout";
+import MainLayout from "@/components/layouts/MainLayout";
 import AboutUs from "@/pages/about/AboutUs";
 import ContactUs from "@/pages/contact/ContactUs";
 import Admindashboard from "@/pages/dashboard/Admindashboard";
@@ -15,7 +15,6 @@ import { createBrowserRouter } from "react-router-dom";
         element: <MainLayout/>, 
         children :[
             {
-             path:'/',
              index: true,
              element:<Home/>
             },

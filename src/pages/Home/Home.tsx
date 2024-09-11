@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner/Banner";
+import FeatureRoom from "@/components/featured/FeatureRoom";
 import ServiceSection from "@/components/ServiceSection/ServiceSection";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Banner/>
             <ServiceSection/>
+            <FeatureRoom/>
         </div>
     );
 };

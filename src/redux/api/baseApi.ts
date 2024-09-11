@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 
 import {
   BaseQueryApi,
@@ -6,18 +7,18 @@ import {
   FetchArgs,
   createApi,
   fetchBaseQuery,
-} from '@reduxjs/toolkit/query/react';
-import { RootState } from '../store';
-import { logout, setUser } from '../features/auth/authSlice';
+} from "@reduxjs/toolkit/query/react";
+import { RootState } from "../store";
+import { logout, setUser } from "../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:5000/api',
-  credentials: 'include',
+  baseUrl: "http://localhost:5000/api",
+  credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
 
     if (token) {
-      headers.set('authorization', `${token}`);
+      headers.set("authorization", `${token}`);
     }
 
     return headers;
@@ -33,11 +34,11 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
   if (result?.error?.status === 401) {
     //* Send Refresh
-    console.log('Sending refresh token');
+    console.log("Sending refresh token");
 
-    const res = await fetch('http://localhost:5000/api/auth/refresh-token', {
-      method: 'POST',
-      credentials: 'include',
+    const res = await fetch("http://localhost:5000/api/auth/refresh-token", {
+      method: "POST",
+      credentials: "include",
     });
 
     const data = await res.json();
@@ -62,7 +63,15 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 };
 
 export const baseApi = createApi({
-  reducerPath: 'baseApi',
+  reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
-  endpoints: () => ({}),
+  endpoints: (builder) => ({
+    getAllrooms: builder.query({
+      query: () => ({
+        url: "/rooms",
+        method: "GET",
+      }),
+    }),
+  }),
 });
+export const {useGetAllroomsQuery} = baseApi;
