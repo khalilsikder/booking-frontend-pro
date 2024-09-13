@@ -1,7 +1,7 @@
-import MainLayout from "@/components/layouts/MainLayout";
+import App from "@/App";
 import AboutUs from "@/pages/about/AboutUs";
+import AdminDashboard from "@/pages/Dashboard/AdminDashboard";
 import ContactUs from "@/pages/contact/ContactUs";
-import Admindashboard from "@/pages/dashboard/Admindashboard";
 import Home from "@/pages/Home/Home";
 import Login from "@/pages/login/Login";
 import MeetingRooms from "@/pages/meetingRooms/MeetingRooms";
@@ -13,11 +13,12 @@ import { createBrowserRouter } from "react-router-dom";
  const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainLayout/>, 
+        element: <App/>, 
         children :[
+    
             {
-             index: true,
-             element:<Home/>
+               path: '',
+               element: <Home/>
             },
             {
                path: 'meetingrooms',
@@ -32,29 +33,54 @@ import { createBrowserRouter } from "react-router-dom";
                 element: <ContactUs/>,       
             },
             {
-                path:'login',
-                element:<Login/>
-            },
-            {
-               path: 'signup',
-               element: <SignUp/>
-            },
-            {
-               path: '*',
-               element: <NotFound/>
-        
-            },
-            {
-                path:'mybookings',
-                element:<MyBookings/>
-            },
-            {
-                path:'dashboard',
-                element:<Admindashboard/>
-            }
-        
+                path: '*',
+                element: <NotFound/>
+         
+             },
+             {
+                 path:'mybookings',
+                 element:<MyBookings/>
+             },        
         ]      
-    }, 
+    },
+    {
+        path: '/',
+        element: <App/>, 
+        children :[
+    
+            {
+               path: 'admindashboard',
+               element: <AdminDashboard/>
+            },
+            {
+                path: 'aboutus',
+                element: <AboutUs/>,       
+            },
+            {
+                path: 'contactus',
+                element: <ContactUs/>,       
+            },
+            {
+                path: '*',
+                element: <NotFound/>
+         
+             },
+             {
+                 path:'mybookings',
+                 element:<MyBookings/>
+             },        
+        ]      
+    },
+
+    {
+        path:'/login',
+        element:<Login/>
+    },
+    {
+       path: '/signup',
+       element: <SignUp/>
+    },
+    
     
 ])
 export default router;

@@ -11,7 +11,7 @@ const MainLayout = () => {
             {noHeaderFooter || <Navbar/>}
             <Outlet/>
             {noHeaderFooter || <Footer/>}
-            
+             
         </div>
     );
 };
