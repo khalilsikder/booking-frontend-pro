@@ -72,6 +72,19 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    getSingleroom: builder.query({
+      query: () => ({
+        url: "/rooms/:id",
+        method: "Get",
+      })
+    }),
+    createrooms: builder.mutation({
+     query: (data) => ({
+      url: "/rooms",
+      method: "POST",
+      body: data
+     })
+    })
   }),
 });
 export const {useGetAllroomsQuery} = baseApi;

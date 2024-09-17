@@ -1,13 +1,18 @@
 import App from "@/App";
 import AboutUs from "@/pages/about/AboutUs";
-import AdminDashboard from "@/pages/Dashboard/AdminDashboard";
+import Booking from "@/pages/Booking/Booking";
+import BookingManagements from "@/pages/BookingManagements";
 import ContactUs from "@/pages/contact/ContactUs";
+import Dashboard from "@/pages/Dashboard/Dashboard";
 import Home from "@/pages/Home/Home";
 import Login from "@/pages/login/Login";
 import MeetingRooms from "@/pages/meetingRooms/MeetingRooms";
 import MyBookings from "@/pages/MyBookings/MyBookings";
 import NotFound from "@/pages/notfound/NotFound";
+import RoomDetails from "@/pages/RoomDetails/RoomDetails";
+import Roommanagement from "@/pages/Roommanagement";
 import SignUp from "@/pages/signUp/SignUp";
+import { Slot } from "@radix-ui/react-slot";
 import { createBrowserRouter } from "react-router-dom";
 
  const router = createBrowserRouter([
@@ -15,7 +20,6 @@ import { createBrowserRouter } from "react-router-dom";
         path: '/',
         element: <App/>, 
         children :[
-    
             {
                path: '',
                element: <Home/>
@@ -40,38 +44,35 @@ import { createBrowserRouter } from "react-router-dom";
              {
                  path:'mybookings',
                  element:<MyBookings/>
-             },        
+             }, 
+             {
+                path:'roomdetails',
+                element:<RoomDetails/>
+             },
+             {
+                path:'booking',
+                element:<Booking/>
+             }
         ]      
     },
     {
-        path: '/',
-        element: <App/>, 
-        children :[
-    
+        path:'dashboard',
+        element:<Dashboard/>,
+        children:[
             {
-               path: 'admindashboard',
-               element: <AdminDashboard/>
+                path:'roommanagement',
+                element:<Roommanagement/>
             },
             {
-                path: 'aboutus',
-                element: <AboutUs/>,       
+                path:'slotmanagement',
+                element: <Slot/>
             },
             {
-                path: 'contactus',
-                element: <ContactUs/>,       
-            },
-            {
-                path: '*',
-                element: <NotFound/>
-         
-             },
-             {
-                 path:'mybookings',
-                 element:<MyBookings/>
-             },        
-        ]      
+                path:'bookingmanagement',
+                element: <BookingManagements/>
+            }
+        ]
     },
-
     {
         path:'/login',
         element:<Login/>

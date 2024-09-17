@@ -22,13 +22,16 @@ const RoomCard = ({ room }: { room: TRoom }) => {
               <p className="text-sm font-medium leading-none">
                Name: {room?.name}
               </p>
+              <p className="text-sm font-medium leading-none">
+               Capacity: {room?.capacity}
+              </p>
               <p className="text-sm text-muted-foreground">PerSlot: {room?.pricePerSlot}</p>
             </div>
           </div>
         </CardContent>
       </Link>
       <CardFooter className="text-center justify-center">
-        <Button> <Link to='/meetingrooms'>show details</Link></Button>
+        <Button className="bg-[#307ae9] text-white px-6 py-2 rounded-xl mt-4 hover:bg-[#919eb1]"> <Link to='/roomdetails'>show details</Link></Button>
       </CardFooter>
     </Card>
   );

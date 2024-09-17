@@ -1,3 +1,4 @@
+import RoomCard from "@/components/Roomcard/RoomCard";
 import { useGetAllroomsQuery } from "@/redux/api/baseApi";
 import { TRoom } from "@/types";
 import { useState } from "react";
@@ -7,8 +8,8 @@ const MeetingRooms = () => {
     const [searchTearm, setSearchterm] = useState("");
     const {data} = useGetAllroomsQuery({})
     return (
-        <div className="container">
-      <div className=" flex text-xl text-center justify-center mx-auto mb-6">
+        <div className="container mt-4">
+      <div className="flex text-xl text-center justify-center mx-auto mb-6">
         <input id="searchInput" type="text" placeholder="Search here" onChange={(event) => {setSearchterm(event.target.value)}} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,15 +29,15 @@ const MeetingRooms = () => {
 
       <div className="grid grid-cols-3">
         {
-          data?.data?.filter((product:TRoom) => {
+          data?.data?.filter((room:TRoom) => {
            if(searchTearm === ''){
-            return product;
-           } else if(product.name.toLowerCase().includes(searchTearm.toLocaleLowerCase())){
-            return product;
+            return room;
+           } else if(room.name.toLowerCase().includes(searchTearm.toLocaleLowerCase())){
+            return room;
            } 
           })
           .map((room: TRoom) => (
-            <ProductCard key={room?._id} room={room}></ProductCard>
+            <RoomCard key={room?._id} room={room}></RoomCard>
           ))
         }
       </div>

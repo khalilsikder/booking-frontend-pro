@@ -2,7 +2,7 @@
 
 const ServiceSection = () => {
     return (
-        <div className=" container flex justify-between">
+        <div className="container md:flex justify-between">
       <div className="card bg-[#3b5e92] rounded-lg text-neutral-content w-96">
         <div className="card-body p-8 items-center text-center">
           <h2 className="card-title text-white">Real-Time Availability</h2>

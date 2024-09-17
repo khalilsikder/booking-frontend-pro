@@ -1,4 +1,4 @@
-import Drop from "@/components/drop";
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
             <Link to="/contactus">Contract Us</Link>
           </p>
           <p>
-            <Link to="/admindashboard">Dashboard</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </p>
         </div>
         <Link to="/login">
